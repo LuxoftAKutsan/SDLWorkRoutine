@@ -1,0 +1,8 @@
+
+function dconnect() {
+    docker exec -i -t $1 sudo -E -u developer /bin/bash
+}
+
+function sdlbash() {
+    dconnect `docker ps | tail -n 1 | awk '{print $1}'`
+}
